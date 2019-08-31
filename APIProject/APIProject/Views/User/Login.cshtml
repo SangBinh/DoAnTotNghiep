@@ -1,0 +1,60 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@Styles.Render("~/Content/css/Login")
+<script src="~/Assets/Admin/js/jquery-3.3.1.js"></script>
+<script src="~/Assets/Admin/js/Project/Log.js"></script>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="modal-dialog text-center">
+        <div class="col-sm-9 main-section">
+
+            <div class="modal-content">
+                <div class="col-12 user-image">
+                    <img src="~/Assets/Backend/img/face.png" />
+                </div>
+                <div class="col-12 form-input">
+                    <div class="form-group row">
+                        <i class="fas fa-user position-absolute txt-mail"></i>
+                        <input type="text" name="name" value="" class="form-control" placeholder="user name" id="txtUserName" />
+                    </div>
+                    <div class="form-group row">
+                        <i class="fas fa-lock position-absolute txt-pass"></i>
+                        <input type="password" name="name" value="" class="form-control" placeholder="password" id="txtPassword" />
+                    </div>
+                    <button class="btn btn-success" onclick="LoginAdmin()" id="login">Login</button>
+                </div>
+                @*<div class="col-12 forgot"><a href="#">Quên Mật Khẩu ?</a></div>*@
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!-- Modal -->
+<script src="~/Assets/Admin/js/Project/Log.js"></script>
+
+@Scripts.Render("~/bundles/bootstrap")
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@Scripts.Render("~/bundles/Script")
+<script>
+
+    $(document).ready(function () {
+        $(document).keypress(function (event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == '13') {
+                LoginAdmin();
+            }
+        });
+    });
+</script>
