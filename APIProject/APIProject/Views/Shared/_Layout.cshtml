@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yellow Shop</title>
+
+
+    <!-- Favicon -->
+    @Styles.Render("~/Content/Addmin")
+    <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="~/Assets/Admin/images/favicon.ico">
+    <script src="~/Assets/Admin/js/Project/Log.js"></script>
+    <script src="~/Assets/Admin/js/jquery-3.3.1.js"></script>
+
+</head>
+
+<body class="adminbody">
+
+    <div id="main">
+
+        <!-- top bar navigation -->
+        <div class="headerbar">
+
+            <!-- LOGO -->
+            <div class="headerbar-left">
+                <a href="/Home/index" class="logo"><img alt="Logo" src="~/Assets/Admin/images/logo.png" /> <span>Admin</span></a>
+            </div>
+
+            <nav class="navbar-custom">
+
+                <ul class="list-inline float-right mb-0">
+
+
+
+                    <li class="list-inline-item dropdown notif">
+
+                        <button class="btn btn-danger btn-sm mt-2" onclick="ShowLogout()">
+                            <script type="text/javascript">
+                                document.write(window._Logout);
+                            </script>
+                        </button>
+
+
+                    </li>
+
+                </ul>
+
+                <ul class="list-inline menu-left mb-0">
+                    <li class="float-left">
+                        <button class="button-menu-mobile open-left">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </div>
+
+        <div class="modal" tabindex="-1" role="dialog" id="Logout">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">LOGOUT</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="CloseDeleteUser()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Log out of the system?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="window.location='/user/logout'">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- End Navigation -->
+        <!-- Left Sidebar -->
+        <div class="left main-sidebar">
+
+            <div class="sidebar-inner leftscroll">
+
+                <div id="sidebar-menu">
+
+                    <ul id="sidebar-menu-ul">
+
+
+                        <li class="submenu">
+                            <a class="active" href="/Home/index">
+                                <i class="fa fa-fw fa-bars"></i>
+                                <span>
+                                    <script type="text/javascript">
+                                        document.write(window._Dashboard);
+                                    </script>
+
+                                </span>
+                            </a>
+                        </li>
+                        @*thông tin của tài khoản*@
+                        <li class="submenu">
+                            <a href="/User/Index">
+                                <i class="fa fa-user-o"></i>
+                                <span>
+                                    <script type="text/javascript">
+                                        document.write(window._Account);
+                                    </script>
+                                </span>
+
+                                <span class="menu-arrow"></span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/Cust/Index">
+                                <i class="fa fa-users"></i>
+                                <span>
+                                    Customer
+                                </span>
+
+                                <span class="menu-arrow"></span>
+                            </a>
+                        </li>
+
+                        @*thông tin loại cửa hàng*@
+                        <li class="submenu">
+                            <a href="/category/Index">
+                                <i class="fa fa-cubes bigfonts" aria-hidden="true"></i>
+                                <span>
+
+                                    <script type="text/javascript">
+                                        document.write(window._Place_Category);
+                                    </script>
+                                </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+
+                        </li>
+                        @*thông tin của cửa hàng*@
+                        <li class="submenu">
+                            <a href="/Place/Index">
+                                <i class="fa fa-home bigfonts" aria-hidden="true"></i> <span>
+
+                                    <script type="text/javascript">
+                                        document.write(window._Place);
+                                    </script>
+                                </span> <span class="menu-arrow"></span>
+                            </a>
+                        </li>
+
+                        @*thông tin khuyến mãi của cửa hàng*@
+                        <li class="submenu">
+                            <a href="/Promotion/Index">
+                                <i class="fa fa-cart-plus bigfonts" aria-hidden="true"></i><span>
+
+                                    <script type="text/javascript">
+                                        document.write(window._Promotion);
+                                    </script>
+                                </span> <span class="menu-arrow"></span>
+                            </a>
+                        </li>
+
+                        <li class="submenu">
+                            <a href="/post/Index">
+                                <i class="fa fa-cart-plus bigfonts" aria-hidden="true"></i><span>
+
+                                    Post
+                                </span> <span class="menu-arrow"></span>
+                            </a>
+                        </li>
+                        @*thông tin quảng cáo*@
+                        <li class="submenu">
+                            <a href="/Ads/index">
+                                <i class="fa fa-desktop bigfonts" aria-hidden="true"></i> <span>
+
+                                    <script type="text/javascript">
+                                        document.write(window._Advertisement);
+                                    </script>
+                                </span> <span class="menu-arrow"></span>
+                            </a>
+                        </li>
+                        @*thông tin liên hệ*@
+                        <li class="submenu">
+                            <a href="/Contact/index">
+                                <i class="fa fa-phone-square bigfonts" aria-hidden="true"></i> <span>
+                                    <script type="text/javascript">
+                                        document.write(window._Contact);
+                                    </script>
+                                </span> <span class="menu-arrow"></span>
+                            </a>
+                        </li>
+                        @*thông tin của thư viện*@
+                        <li class="submenu">
+                            <a href="/Media/Index">
+                                <i class="fa fa-photo bigfonts" aria-hidden="true"></i> <span>
+                                    <script type="text/javascript">
+                                        document.write(window._Media);
+                                    </script>
+                                </span> <span class="menu-arrow"></span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+
+        <!-- End Sidebar -->
+
+
+        <div class="content-page">
+
+            <!-- Start content -->
+            <div class="content">
+
+                <div class="container-fluid">
+                    @RenderBody()
+
+                </div>
+                <!-- END container-fluid -->
+
+            </div>
+            <!-- END content -->
+
+        </div>
+        <!-- END content-page -->
+
+        <footer class="footer">
+            
+        </footer>
+
+    </div>
+    <!-- END main -->
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="~/Content/ckfinder/ckfinder.js"></script>
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    @Scripts.Render("~/bundles/Script")
+
+    <script>
+        $(document).ready(function () {
+            // data-tables
+
+
+            // counter-up
+            $('.counter').counterUp({
+                delay: 10,
+                time: 600
+            });
+        });
+
+        function ShowLogout() {
+            $('#Logout').show();
+        }
+    </script>
+
+
+    <script src="~/Content/ckeditor/js/setup.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtMC0blBixe25RL85vn7prawIqX1up56E&callback=initMap">
+    </script>
+
+</body>
+</html>
